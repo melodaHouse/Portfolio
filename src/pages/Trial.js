@@ -20,10 +20,10 @@ function Trial() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        console.log(name);
-        console.log(email);
-        console.log(gender);
-        console.log(category);
+    // console.log(name); // user info
+    // console.log(email); // user info
+    // console.log(gender); // user info
+    // console.log(category); // user info
     }, [name, email, gender, category]);
 
     // const submitTrialForm = async () => {
@@ -113,7 +113,7 @@ function Trial() {
 
             if (response.status === 201) {
                 alert('Trial form submitted successfully!');
-                console.log('successfully saved!');
+                // console.log('successfully saved!');
 
                 // Clear form fields after submission
                 setName('');

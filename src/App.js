@@ -26,7 +26,7 @@ function useTrackVisitor() {
       page: location.pathname
     })
     .then(response => {
-      console.log("Visitor tracked:", response.data);
+  // console.log("Visitor tracked:", response.data); // contains visitor info
     })
     .catch(error => {
       console.error("Visitor tracking failed:", error);

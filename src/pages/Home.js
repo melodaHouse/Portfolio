@@ -117,11 +117,11 @@ const Home = () => {
                 message: message,
             });
 
-            console.log('Server response:', response);
+            // console.log('Server response:', response); // may contain sensitive server response
 
             if (response.status == 201) {
                 alert('Message sent successfully!');
-                console.log('successfully saved!');
+                // console.log('successfully saved!');
             }
             else if (response.status == 400) {
                 alert('Please fill all the fields');    
@@ -146,9 +146,9 @@ const Home = () => {
     }
 
     useEffect(() => {
-        console.log('name', name);
-        console.log('email', email);
-        console.log('message', message);
+    // console.log('name', name); // user info
+    // console.log('email', email); // user info
+    // console.log('message', message); // user info
     }, [name, email, message]);
 
 

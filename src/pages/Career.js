@@ -123,7 +123,7 @@ const Career = () => {
             const fileRef = ref(storage, `resumes/${file.name}`);
             await uploadBytes(fileRef, file);
             const fileUrl = await getDownloadURL(fileRef);
-            console.log(fileUrl);
+            // console.log(fileUrl); // file URL may be sensitive
 
             const response=await axios.post(`${apiUri}/submitteacherapplication`, {
                 name: name,
@@ -133,7 +133,7 @@ const Career = () => {
             })
 
             if (response.status === 201) {
-                console.log('Application submitted successfully!');
+                // console.log('Application submitted successfully!');
             }
             else if (response.status === 400) {
                 console.error('Please fill all the fields and attach a resume.');
