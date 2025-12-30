@@ -9,6 +9,7 @@ import "../css/career.css";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 
+import s3 from '../config/awsconfig';
 
 import { render } from "react-dom";
 
@@ -119,12 +120,16 @@ const Career = () => {
         setLoading(true);
 
         try {
-            // Upload the file to Firebase Storage
-            const fileRef = ref(storage, `resumes/${file.name}`);
-            await uploadBytes(fileRef, file);
-            const fileUrl = await getDownloadURL(fileRef);
-            // console.log(fileUrl); // file URL may be sensitive
-
+            // Upload the file to AWS S3
+            const params = {
+                Bucket: 'resumebucket.melodahouse.com',
+                Key: `${Date.now()}_${file.name}`, // Unique file name
+                Body: file,
+                ContentType: file.type,
+            };
+            const uploadResult = await s3.upload(params).promise();
+            const fileUrl = uploadResult.Location;
+            
             const response=await axios.post(`${apiUri}/submitteacherapplication`, {
                 name: name,
                 email: email,
