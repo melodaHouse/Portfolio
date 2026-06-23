@@ -122,7 +122,7 @@ const Career = () => {
         try {
             // Upload the file to AWS S3
             const params = {
-                Bucket: 'resumebucket.shalini.melodahouse.com',
+                Bucket: 'resumebucket.shalini.melodahouse.com ',
                 Key: `${Date.now()}_${file.name}`, // Unique file name
                 Body: file,
                 ContentType: file.type,
